@@ -5,11 +5,22 @@ import java.util.Set;
 
 import com.joaodev.dscatalog.entities.User;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class UserDTO {
 
     private Long id;
+    
+    @Size(min = 3, max = 30, message = "Deve conter entre 3 e 30 caracteres.")
+    @NotBlank(message = "Campo Requerido")
     private String firstName;
+    
+    @Size(min = 3, max = 30, message = "Deve conter entre 3 e 30 caracteres.")
     private String lastName;
+    
+    @Email(message = "Favor digitar um email válido.")
     private String email;
 
     Set<RoleDTO> roles = new HashSet<>();

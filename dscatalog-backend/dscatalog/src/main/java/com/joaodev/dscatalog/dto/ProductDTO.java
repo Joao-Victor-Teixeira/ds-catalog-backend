@@ -8,13 +8,27 @@ import java.util.Set;
 import com.joaodev.dscatalog.entities.Category;
 import com.joaodev.dscatalog.entities.Product;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 public class ProductDTO {
 
     private Long id;
+    
+    @Size(min = 1,max = 20,message = "Deve ter no minimo um caractere e máximo de 20.")
+    @NotBlank(message = "Campo requerido")
     private String name;
+    
+    @NotBlank(message = "Campo requerido.")
     private String description;
+    
+    @Positive(message = "O valor deve ser positivo e diferente de zero")
     private Double price;
     private String imgUrl;
+    
+    @PastOrPresent(message = "A data do produto não pode ser futura")
     private Instant date;
 
     private List<CategoryDTO> categories = new ArrayList<>();
