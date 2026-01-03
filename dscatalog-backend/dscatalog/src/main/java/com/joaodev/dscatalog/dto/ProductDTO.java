@@ -17,7 +17,7 @@ public class ProductDTO {
 
     private Long id;
     
-    @Size(min = 1,max = 20,message = "Deve ter no minimo um caractere e máximo de 20.")
+    @Size(min = 1,max = 20,message = "Deve ter entre 3 e 20 caracteres.")
     @NotBlank(message = "Campo requerido")
     private String name;
     
