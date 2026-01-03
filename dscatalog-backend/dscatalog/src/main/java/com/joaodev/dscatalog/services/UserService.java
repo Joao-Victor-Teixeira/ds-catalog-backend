@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.joaodev.dscatalog.dto.RoleDTO;
 import com.joaodev.dscatalog.dto.UserDTO;
 import com.joaodev.dscatalog.dto.UserInsertDTO;
-
+import com.joaodev.dscatalog.dto.UserUpdateDTO;
 import com.joaodev.dscatalog.entities.Role;
 import com.joaodev.dscatalog.entities.User;
 import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
@@ -60,7 +60,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserDTO update(Long id, UserDTO dto) {
+    public UserDTO update(Long id, UserUpdateDTO dto) {
       try{
        User entity = repository.getReferenceById(id);
        copyDtoToEntity(dto, entity); 

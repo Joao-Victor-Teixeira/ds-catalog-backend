@@ -2,37 +2,45 @@ package com.joaodev.dscatalog.services.validation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.HandlerMapping;
 
-import com.joaodev.dscatalog.dto.UserInsertDTO;
+import com.joaodev.dscatalog.dto.UserUpdateDTO;
 import com.joaodev.dscatalog.entities.User;
 import com.joaodev.dscatalog.repositories.UserRepository;
 import com.joaodev.dscatalog.resources.exceptions.FieldMessage;
 
-public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {
+public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid, UserUpdateDTO> {
 	
+    @Autowired
+    private HttpServletRequest request;
+
     @Autowired
     private UserRepository repository;
 
 	@Override
-	public void initialize(UserInsertValid ann) {
+	public void initialize(UserUpdateValid ann) {
 	}
 
 	@Override
-	public boolean isValid(UserInsertDTO dto, ConstraintValidatorContext context) {
+	public boolean isValid(UserUpdateDTO dto, ConstraintValidatorContext context) {
 		
+        @SuppressWarnings("unchecked")
+        var uriVars = (Map<String, String>)request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
+        long userId = Long.parseLong(uriVars.get("id"));
+
 		List<FieldMessage> list = new ArrayList<>();
 		
         User user = repository.findByEmail(dto.getEmail());
-        if (user != null) {
-            list.add(new FieldMessage("email", "Email já existe"));
+        if (user != null && userId != user.getId()) {
+            list.add(new FieldMessage("email", "Email já existe para outro usuário"));
         }
-
-		
 
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
