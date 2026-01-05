@@ -1,6 +1,7 @@
 package com.joaodev.dscatalog.services;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,13 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductProjection> testQuery(Pageable pageable) {
-        return repository.searchProducts(Arrays.asList(1L, 3L), "", pageable);
+    public Page<ProductProjection> findAllPaged(String name, String categoryId, Pageable pageable) {
+      
+        List<Long> categoryIds = Arrays.asList();
+        if (!"0".equals(categoryId)) {
+            categoryIds = Arrays.asList(categoryId.split(",")).stream().map(x -> Long.parseLong(x)).toList();
+        }
+
+        return repository.searchProducts(categoryIds, name, pageable);
     }
 }
