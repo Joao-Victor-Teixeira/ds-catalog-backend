@@ -1,5 +1,6 @@
 package com.joaodev.dscatalog.services;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import com.joaodev.dscatalog.dto.ProductDTO;
 import com.joaodev.dscatalog.entities.Category;
 import com.joaodev.dscatalog.entities.Product;
 import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.projections.ProductProjection;
 import com.joaodev.dscatalog.repositories.CategoryRepository;
 import com.joaodev.dscatalog.repositories.ProductRepository;
 import com.joaodev.dscatalog.services.exceptions.DatabaseException;
@@ -90,5 +92,10 @@ public class ProductService {
             Category cat = categoryRepository.getReferenceById(catDTO.getId());
             entity.getCategories().add(cat);
         }
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ProductProjection> testQuery(Pageable pageable) {
+        return repository.searchProducts(Arrays.asList(1L, 3L), "", pageable);
     }
 }
