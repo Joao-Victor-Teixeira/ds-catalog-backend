@@ -14,7 +14,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.joaodev.dscatalog.dto.CategoryDTO;
 import com.joaodev.dscatalog.dto.ProductDTO;
 import com.joaodev.dscatalog.entities.Category;
