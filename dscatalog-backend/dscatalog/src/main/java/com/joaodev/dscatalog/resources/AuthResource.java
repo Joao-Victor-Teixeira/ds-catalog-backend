@@ -21,7 +21,7 @@ public class AuthResource {
 
     @PostMapping(value = "/recover-token")
     public ResponseEntity<Void> createRecoverToken(@Valid @RequestBody EmailDTO body){
-        authService.createdRecoverToken(body);
+        authService.createRecoverToken(body);
         return ResponseEntity.noContent().build();
     }
 }
