@@ -1,4 +1,4 @@
-package com.joaodev.dscatalog.exceptions;
+package com.joaodev.dscatalog.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

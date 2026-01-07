@@ -9,7 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.joaodev.dscatalog.services.exceptions.DatabaseException;
 
 import jakarta.servlet.http.HttpServletRequest;

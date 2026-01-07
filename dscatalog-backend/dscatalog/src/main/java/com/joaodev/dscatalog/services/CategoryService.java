@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.joaodev.dscatalog.dto.CategoryDTO;
 import com.joaodev.dscatalog.entities.Category;
 
-import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.joaodev.dscatalog.repositories.CategoryRepository;
 import com.joaodev.dscatalog.services.exceptions.DatabaseException;
 

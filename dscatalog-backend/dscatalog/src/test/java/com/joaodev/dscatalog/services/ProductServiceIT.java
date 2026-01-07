@@ -11,7 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.joaodev.dscatalog.dto.ProductDTO;
-import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.joaodev.dscatalog.repositories.ProductRepository;
 
 @SpringBootTest

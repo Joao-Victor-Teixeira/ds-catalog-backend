@@ -21,7 +21,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.joaodev.dscatalog.dto.ProductDTO;
 import com.joaodev.dscatalog.entities.Category;
 import com.joaodev.dscatalog.entities.Product;
-import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.joaodev.dscatalog.repositories.CategoryRepository;
 import com.joaodev.dscatalog.repositories.ProductRepository;
 import com.joaodev.dscatalog.services.exceptions.DatabaseException;

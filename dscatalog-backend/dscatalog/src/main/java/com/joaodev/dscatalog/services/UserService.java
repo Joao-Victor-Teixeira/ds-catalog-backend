@@ -21,7 +21,7 @@ import com.joaodev.dscatalog.dto.UserInsertDTO;
 import com.joaodev.dscatalog.dto.UserUpdateDTO;
 import com.joaodev.dscatalog.entities.Role;
 import com.joaodev.dscatalog.entities.User;
-import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.joaodev.dscatalog.projections.UserDetailsProjection;
 import com.joaodev.dscatalog.repositories.RoleRepository;
 import com.joaodev.dscatalog.repositories.UserRepository;

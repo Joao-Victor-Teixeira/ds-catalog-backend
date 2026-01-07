@@ -18,7 +18,7 @@ import com.joaodev.dscatalog.dto.CategoryDTO;
 import com.joaodev.dscatalog.dto.ProductDTO;
 import com.joaodev.dscatalog.entities.Category;
 import com.joaodev.dscatalog.entities.Product;
-import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.joaodev.dscatalog.projections.ProductProjection;
 import com.joaodev.dscatalog.repositories.CategoryRepository;
 import com.joaodev.dscatalog.repositories.ProductRepository;

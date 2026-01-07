@@ -28,7 +28,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joaodev.dscatalog.dto.ProductDTO;
-import com.joaodev.dscatalog.exceptions.ResourceNotFoundException;
+import com.joaodev.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.joaodev.dscatalog.services.ProductService;
 import com.joaodev.dscatalog.services.exceptions.DatabaseException;
 import com.joaodev.dscatalog.tests.Factory;
